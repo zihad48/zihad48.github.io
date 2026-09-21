@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mahfuz Hossain Antor — Competitive Programmer &amp; Software Engineer</title>
+<meta name="description" content="Portfolio of Mahfuz Hossain Antor — CSE undergraduate, competitive programmer, and software engineer.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ AMBIENT / CURSOR LAYERS ============ -->
+<div class="grain"></div>
+<canvas id="blob-canvas"></canvas>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ============ SCROLL PROGRESS ============ -->
+<div class="scroll-progress"><div class="scroll-progress__bar" id="scrollBar"></div></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="siteNav">
+  <div class="nav__inner glass">
+    <a href="#home" class="nav__brand" data-cursor="hover">
+      <span class="nav__brand-mark">MHA</span>
+      <span class="nav__brand-dot"></span>
+    </a>
+    <nav class="nav__links">
+      <a href="#about" data-cursor="hover"><span class="nav__num">01</span>About</a>
+      <a href="#skills" data-cursor="hover"><span class="nav__num">02</span>Skills</a>
+      <a href="#achievements" data-cursor="hover"><span class="nav__num">03</span>Achievements</a>
+      <a href="#projects" data-cursor="hover"><span class="nav__num">04</span>Projects</a>
+      <a href="#contact" data-cursor="hover"><span class="nav__num">05</span>Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn--ghost nav__cta" data-cursor="hover">Say hello</a>
+    <button class="nav__burger" id="navBurger" aria-label="Toggle menu" data-cursor="hover">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu__panel glass">
+    <a href="#about" class="reveal-link">About</a>
+    <a href="#skills" class="reveal-link">Skills</a>
+    <a href="#achievements" class="reveal-link">Achievements</a>
+    <a href="#projects" class="reveal-link">Projects</a>
+    <a href="#contact" class="reveal-link">Contact</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero__container">
+    <p class="eyebrow reveal" data-cursor="text">Portfolio / 2026</p>
+    <h1 class="hero__title">
+      <span class="reveal-line"><span class="reveal-inner">Mahfuz Hossain</span></span>
+      <span class="reveal-line"><span class="reveal-inner"><em>Antor</em></span></span>
+    </h1>
+    <p class="hero__role reveal" style="--d:0.15s">
+      CSE Undergraduate @ <span class="hl">BUP</span> — Competitive Programmer, Problem Setter
+      &amp; Software Engineer, currently rotating through
+      <span class="type-rotator" id="typeRotator"></span>
+    </p>
+
+    <div class="hero__cta reveal" style="--d:0.3s">
+      <a href="#projects" class="btn btn--solid" data-cursor="hover">View Projects <i class="arrow"></i></a>
+      <a href="#achievements" class="btn btn--outline" data-cursor="hover">Competitive Programming</a>
+    </div>
+
+    <div class="hero__stats reveal" style="--d:0.45s">
+      <div class="hero-stat glass">
+        <span class="hero-stat__num" data-count="537">0</span>
+        <span class="hero-stat__label">day Codeforces streak</span>
+      </div>
+      <div class="hero-stat glass">
+        <span class="hero-stat__num" data-count="600" data-suffix="+">0</span>
+        <span class="hero-stat__label">problems solved</span>
+      </div>
+      <div class="hero-stat glass">
+        <span class="hero-stat__num" data-count="1235">0</span>
+        <span class="hero-stat__label">peak CF rating (Pupil)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__portrait reveal" style="--d:0.2s">
+    <div class="portrait-frame glass" data-cursor="hover">
+      <div class="portrait-slot" id="portraitSlot">
+        <!-- REPLACE ME: put your photo at assets/images/profile.jpg -->
+        <img src="assets/images/profile.jpg" alt="Mahfuz Hossain Antor" id="profileImg" onerror="this.style.display='none'; this.parentElement.classList.add('portrait-slot--empty');">
+        <div class="portrait-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          <span>Add photo<br><code>assets/images/profile.jpg</code></span>
+        </div>
+      </div>
+      <div class="portrait-badge">
+        <span class="dot dot--live"></span> Rangpur → Dhaka, BD
+      </div>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#about" data-cursor="hover"><span></span>Scroll</a>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="section__head">
+    <p class="eyebrow reveal">Who's this</p>
+    <h2 class="section__title reveal">About</h2>
+  </div>
+
+  <div class="about__grid">
+    <p class="about__lede reveal">
+      I'm a Computer Science &amp; Engineering undergraduate at the
+      <strong>Bangladesh University of Professionals</strong>, spending most of my free hours
+      inside a Codeforces editor turning constraints into working C++. Outside of judges and
+      contests, I build small, complete systems — robots, planners, delivery apps — end to end.
+    </p>
+
+    <div class="about__cards">
+      <div class="info-card glass reveal">
+        <span class="info-card__eyebrow">Education</span>
+        <div class="edu-row">
+          <div class="edu-row__top">
+            <span class="edu-row__degree">B.Sc. in Computer Science &amp; Engineering</span>
+            <span class="edu-row__date">2024 — 2028 (Expected)</span>
+          </div>
+          <span class="edu-row__school">Bangladesh University of Professionals, Dhaka</span>
+        </div>
+        <div class="edu-row">
+          <div class="edu-row__top">
+            <span class="edu-row__degree">Higher Secondary Certificate — Science</span>
+            <span class="edu-row__date">2021 — 2023</span>
+          </div>
+          <span class="edu-row__school">Police Lines School and College, Rangpur · GPA 5.00/5.00</span>
+        </div>
+        <div class="edu-row">
+          <div class="edu-row__top">
+            <span class="edu-row__degree">Secondary School Certificate — Science</span>
+            <span class="edu-row__date">2016 — 2020</span>
+          </div>
+          <span class="edu-row__school">Kalihati R.S. Govt. Pilot High School, Tangail · GPA 5.00/5.00</span>
+        </div>
+      </div>
+
+      <div class="info-card glass reveal">
+        <span class="info-card__eyebrow">Currently</span>
+        <ul class="now-list">
+          <li><span class="now-dot"></span>Executive Member, BUP Computer Programming Club</li>
+          <li><span class="now-dot"></span>Junior Associative, BUP Robotics Club</li>
+          <li><span class="now-dot"></span>Setting problems for intra-university contests</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="section" id="skills">
+  <div class="section__head">
+    <p class="eyebrow reveal">Toolbox</p>
+    <h2 class="section__title reveal">Skills</h2>
+  </div>
+
+  <div class="skills__grid">
+    <div class="skill-feature glass reveal" data-cursor="hover">
+      <div class="skill-feature__top">
+        <span class="skill-feature__lang">C++</span>
+        <span class="skill-feature__tag">High proficiency</span>
+      </div>
+      <div class="skill-feature__meter"><div class="skill-feature__fill" data-fill="96"></div></div>
+      <p class="skill-feature__note">Primary language for competitive programming — 600+ problems solved across Codeforces, CodeChef, LeetCode &amp; CSES.</p>
+    </div>
+
+    <div class="skill-columns">
+      <div class="skill-col reveal">
+        <h3>Languages</h3>
+        <div class="pill-row">
+          <span class="pill">C</span><span class="pill">C++</span><span class="pill">Java</span>
+          <span class="pill">Python</span><span class="pill">SQL</span>
+        </div>
+      </div>
+      <div class="skill-col reveal">
+        <h3>Frameworks</h3>
+        <div class="pill-row">
+          <span class="pill">FastAPI</span><span class="pill">React.js</span><span class="pill">Node.js</span>
+        </div>
+      </div>
+      <div class="skill-col reveal">
+        <h3>Databases</h3>
+        <div class="pill-row">
+          <span class="pill">MySQL</span><span class="pill">SQLite</span><span class="pill">MongoDB</span>
+        </div>
+      </div>
+      <div class="skill-col reveal">
+        <h3>Tools &amp; Platforms</h3>
+        <div class="pill-row">
+          <span class="pill">Git</span><span class="pill">Linux</span><span class="pill">Arduino</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACHIEVEMENTS ============ -->
+<section class="section" id="achievements">
+  <div class="section__head">
+    <p class="eyebrow reveal">Track record</p>
+    <h2 class="section__title reveal">Achievements</h2>
+  </div>
+
+  <!-- ---- Competitive Programming (first) ---- -->
+  <div class="cp-block">
+    <div class="cp-block__intro reveal">
+      <h3 class="cp-block__title">Competitive Programming</h3>
+      <p>Active competitor &amp; problem setter, 2025 — present. Representing BUP across national
+      inter-university contests while chasing one goal on the side: never miss a day.</p>
+    </div>
+
+    <div class="cp-stats reveal">
+      <div class="cp-stat cp-stat--hero glass">
+        <span class="cp-stat__num" data-count="537">0</span>
+        <span class="cp-stat__label">day streak · all-time max</span>
+        <span class="cp-stat__flag">Longest active streak on record</span>
+      </div>
+      <div class="cp-stat glass">
+        <span class="cp-stat__num" data-count="600" data-suffix="+">0</span>
+        <span class="cp-stat__label">problems solved</span>
+      </div>
+      <div class="cp-stat glass">
+        <span class="cp-stat__num">1235</span>
+        <span class="cp-stat__label">peak rating — Pupil (Codeforces)</span>
+      </div>
+      <div class="cp-stat glass">
+        <span class="cp-stat__num">4</span>
+        <span class="cp-stat__label">judges: CF · CodeChef · LeetCode · CSES</span>
+      </div>
+    </div>
+
+    <!-- ---- LIVE STREAK / HEATMAP CHART ---- -->
+    <div class="heatmap-card glass reveal">
+      <div class="heatmap-card__head">
+        <div>
+          <h4>Codeforces Activity</h4>
+          <p id="cfHandleNote">Showing sample data — set your handle in <code>script.js</code> (<code>CF_HANDLE</code>) to pull this live.</p>
+        </div>
+        <div class="heatmap-status" id="heatmapStatus"><span class="dot dot--live"></span>Live-ready</div>
+      </div>
+
+      <div class="heatmap-scroll">
+        <div class="heatmap" id="heatmap">
+          <!-- injected by script.js -->
+        </div>
+      </div>
+
+      <div class="heatmap-legend">
+        <span>Less</span>
+        <span class="cell-swatch" data-level="0"></span>
+        <span class="cell-swatch" data-level="1"></span>
+        <span class="cell-swatch" data-level="2"></span>
+        <span class="cell-swatch" data-level="3"></span>
+        <span class="cell-swatch" data-level="4"></span>
+        <span>More</span>
+      </div>
+
+      <div class="heatmap-foot" id="heatmapFoot">
+        <!-- injected by script.js: totals -->
+      </div>
+      <div class="heatmap-tooltip" id="heatmapTooltip"></div>
+    </div>
+  </div>
+
+  <!-- ---- Contest / Awards timeline ---- -->
+  <div class="timeline reveal">
+    <div class="timeline__line"></div>
+
+    <div class="t-item">
+      <div class="t-item__year">2026</div>
+      <div class="t-item__body glass"><h5>Codex Community Hackathon — SUST CSE Carnival</h5><p>Top 50 Finalist</p></div>
+    </div>
+    <div class="t-item">
+      <div class="t-item__year">2025</div>
+      <div class="t-item__body glass"><h5>Samsung R&amp;D Code Contest</h5><p>Rank 166<sup>th</sup> / 1500+</p></div>
+    </div>
+    <div class="t-item">
+      <div class="t-item__year">2025</div>
+      <div class="t-item__body glass"><h5>Meta Hacker Cup — Round 1</h5><p>Rank 5101<sup>st</sup> / 13,000+</p></div>
+    </div>
+    <div class="t-item">
+      <div class="t-item__year">2023</div>
+      <div class="t-item__body glass"><h5>Bangladesh Physics Olympiad (BdPhO)</h5><p>Champion — Rangpur Region</p></div>
+    </div>
+    <div class="t-item">
+      <div class="t-item__year">2025</div>
+      <div class="t-item__body glass"><h5>Intra BUP Programming Contest</h5><p>Champion</p></div>
+    </div>
+    <div class="t-item">
+      <div class="t-item__year">2025</div>
+      <div class="t-item__body glass"><h5>BUP CSE Tech Carnival Programming Contest</h5><p>Rank 16<sup>th</sup></p></div>
+    </div>
+    <div class="t-item">
+      <div class="t-item__year">2026</div>
+      <div class="t-item__body glass"><h5>SUST Inter University Programming Contest</h5><p>Participant</p></div>
+    </div>
+    <div class="t-item">
+      <div class="t-item__year">2026</div>
+      <div class="t-item__body glass"><h5>NSU Inter University Programming Contest</h5><p>Participant</p></div>
+    </div>
+    <div class="t-item">
+      <div class="t-item__year">2026</div>
+      <div class="t-item__body glass"><h5>BUET Inter University Programming Contest</h5><p>Participant</p></div>
+    </div>
+    <div class="t-item">
+      <div class="t-item__year">2026</div>
+      <div class="t-item__body glass"><h5>DUET CSE Fest ICT Olympiad</h5><p>Participant</p></div>
+    </div>
+    <div class="t-item">
+      <div class="t-item__year">2025</div>
+      <div class="t-item__body glass"><h5>IEEE BUP Branch Fest ICT Olympiad</h5><p>Participant</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section section--flush" id="projects">
+  <div class="section__head">
+    <p class="eyebrow reveal">Selected work</p>
+    <h2 class="section__title reveal">Projects</h2>
+    <div class="carousel-controls reveal">
+      <button class="carousel-btn" id="prevProj" aria-label="Previous project" data-cursor="hover">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="carousel-btn" id="nextProj" aria-label="Next project" data-cursor="hover">
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="carousel" id="projectTrack">
+
+    <article class="proj-card glass" data-cursor="hover">
+      <div class="proj-card__media">
+        <div class="proj-card__placeholder">
+          <span>Add screenshot</span>
+          <code>assets/images/project-network.jpg</code>
+        </div>
+      </div>
+      <div class="proj-card__body">
+        <div class="proj-card__stack">
+          <span class="pill pill--sm">Python</span><span class="pill pill--sm">Streamlit</span>
+          <span class="pill pill--sm">PyVis</span><span class="pill pill--sm">NetworkX</span>
+        </div>
+        <h3>Network Reliability System &amp; Budget Optimizer</h3>
+        <p>A knapsack-based budget optimization engine that analyzes cost–reliability trade-offs —
+        simulating network upgrades, scoring impact, and exporting datasets under strict constraints.</p>
+        <a href="#" class="proj-card__link" data-cursor="hover">Source — link coming soon <i class="arrow"></i></a>
+      </div>
+    </article>
+
+    <article class="proj-card glass" data-cursor="hover">
+      <div class="proj-card__media">
+        <div class="proj-card__placeholder">
+          <span>Add photo/video</span>
+          <code>assets/images/project-robot.jpg</code>
+        </div>
+      </div>
+      <div class="proj-card__body">
+        <div class="proj-card__stack">
+          <span class="pill pill--sm">Arduino</span><span class="pill pill--sm">Embedded C</span>
+          <span class="pill pill--sm">Electronics</span>
+        </div>
+        <h3>Line Follower Robot</h3>
+        <p>An autonomous line-following robot using IR sensors, an Arduino microcontroller, and an
+        L298N motor driver to track a path and adjust DC motor speeds for real-time navigation.</p>
+        <a href="#" class="proj-card__link" data-cursor="hover">Source — link coming soon <i class="arrow"></i></a>
+      </div>
+    </article>
+
+    <article class="proj-card glass" data-cursor="hover">
+      <div class="proj-card__media">
+        <div class="proj-card__placeholder">
+          <span>Add screenshot</span>
+          <code>assets/images/project-onereserve.jpg</code>
+        </div>
+      </div>
+      <div class="proj-card__body">
+        <div class="proj-card__stack">
+          <span class="pill pill--sm">Python</span><span class="pill pill--sm">Flask</span>
+          <span class="pill pill--sm">PyMySQL</span>
+        </div>
+        <h3>OneReserve</h3>
+        <p>A Flask-based travel destination planner handling user authentication, sessions, and
+        MySQL-backed booking workflows from search to confirmation.</p>
+        <a href="#" class="proj-card__link" data-cursor="hover">Source — link coming soon <i class="arrow"></i></a>
+      </div>
+    </article>
+
+    <article class="proj-card glass" data-cursor="hover">
+      <div class="proj-card__media">
+        <div class="proj-card__placeholder">
+          <span>Add screenshot</span>
+          <code>assets/images/project-quickcart.jpg</code>
+        </div>
+      </div>
+      <div class="proj-card__body">
+        <div class="proj-card__stack">
+          <span class="pill pill--sm">Java</span><span class="pill pill--sm">JavaFX</span>
+          <span class="pill pill--sm">SQLite</span>
+        </div>
+        <h3>Quick Cart</h3>
+        <p>A Java delivery application with a custom GUI, using SQLite for multi-role database
+        management across distinct Admin, Delivery, and Customer interfaces.</p>
+        <a href="#" class="proj-card__link" data-cursor="hover">Source — link coming soon <i class="arrow"></i></a>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="carousel-dots" id="carouselDots"></div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="contact__inner glass reveal">
+    <p class="eyebrow">Get in touch</p>
+    <h2 class="contact__title">Let's build something<br>worth <em>solving</em>.</h2>
+    <p class="contact__sub">Open to internships, collaborative projects, and interesting problems.</p>
+
+    <div class="contact__grid">
+      <a href="mailto:mha2962005@gmail.com" class="contact-item glass" data-cursor="hover">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        <span>mha2962005@gmail.com</span>
+      </a>
+      <a href="tel:+8801700994917" class="contact-item glass" data-cursor="hover">
+        <svg viewBox="0 0 24 24"><path d="M4 5c0 8.3 6.7 15 15 15l3-4-6-3-2 2c-2.5-1.2-4.8-3.5-6-6l2-2-3-6-4 0z"/></svg>
+        <span>+880 1700-994917</span>
+      </a>
+      <a href="#" class="contact-item glass" data-cursor="hover" id="linkedinLink">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 11v5M8 8v.01M12 16v-5M12 11c0-1.5 1-2 2-2s2 .5 2 2v5"/></svg>
+        <span>linkedin.com/in/thegreatmahu</span>
+      </a>
+      <a href="#" class="contact-item glass" data-cursor="hover" id="githubLink">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.7-.1-.25-.45-1.28.1-2.66 0 0 .84-.27 2.75 1.02a9.5 9.5 0 015 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.41.1 2.66.64.7 1.03 1.6 1.03 2.7 0 3.85-2.34 4.7-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
+        <span>github.com/TheGreatMahu</span>
+      </a>
+    </div>
+    <p class="contact__note">* Social links are placeholders — wire up the real URLs in <code>index.html</code> (search for <code>linkedinLink</code> / <code>githubLink</code>) whenever you're ready.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Designed &amp; built by Mahfuz Hossain Antor · Dhaka, Bangladesh · <span id="year"></span></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
